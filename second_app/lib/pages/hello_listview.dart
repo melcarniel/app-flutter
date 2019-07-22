@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/pages/dog_page.dart';
+import 'package:second_app/utils/nav.dart';
 
 class Dog {
   String nome;
@@ -25,8 +27,7 @@ class _HelloListviewState extends State<HelloListview> {
             onPressed: () {
               print('Lista');
               setState(() {
-              gridView = false;
-                
+                gridView = false;
               });
             },
           ),
@@ -35,8 +36,7 @@ class _HelloListviewState extends State<HelloListview> {
             onPressed: () {
               print('Grid');
               setState(() {
-              gridView = true;
-                
+                gridView = true;
               });
             },
           ),
@@ -75,59 +75,34 @@ class _HelloListviewState extends State<HelloListview> {
         },
       );
     }
-    //gridview no lugar do listview
-
-    // return ListView.builder(
-    //   itemCount: dogs.length,
-    //   itemExtent: 300,
-    //   itemBuilder: (context, index) {
-    //     Dog dog = dogs[index];
-    //     return Stack(
-    //       fit: StackFit.expand,
-    //       children: <Widget>[
-    //         _img(dog.foto),
-    //         Container(
-    //           alignment: Alignment.topLeft,
-    //           child: Container(
-    //             margin: EdgeInsets.all(12),
-    //             padding: EdgeInsets.all(8),
-    //             decoration: BoxDecoration(
-    //               color: Colors.black45,
-    //               borderRadius: BorderRadius.circular(16),
-    //             ),
-    //             child: Text(
-    //               dog.nome,
-    //               style: TextStyle(fontSize: 26, color: Colors.white),
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     );
-    //   },
-    // );
   }
 
-  Stack _itemView(Dog dog) {
-    return Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        _img(dog.foto),
-        Container(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: EdgeInsets.all(12),
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Text(
-              dog.nome,
-              style: TextStyle(fontSize: 26, color: Colors.white),
+  _itemView(Dog dog) {
+    return GestureDetector(
+      onTap: () {
+        push(context, DogPage(dog));
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _img(dog.foto),
+          Container(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.all(12),
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.black45,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Text(
+                dog.nome,
+                style: TextStyle(fontSize: 26, color: Colors.white),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
