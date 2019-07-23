@@ -98,7 +98,7 @@ _img(img) {
 
 _text() {
   return Text(
-    'Melinaaaa',
+    'Oreooo',
     style: TextStyle(
       fontSize: 30,
       color: Colors.blue,
