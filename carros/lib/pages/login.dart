@@ -1,11 +1,21 @@
 import 'package:carros/domain/login_service.dart';
+import 'package:carros/pages/home_page.dart';
 import 'package:carros/utils/alerts.dart';
+import 'package:carros/utils/nav.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
   final _tLogin = TextEditingController(text: 'Melina');
   final _tSenha = TextEditingController(text: '123456');
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  var _progress = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +78,13 @@ class LoginPage extends StatelessWidget {
             margin: EdgeInsets.only(top: 20),
             child: RaisedButton(
               color: Colors.blue,
-              child: Text(
+              child: _progress ?
+              CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(
+                  Colors.white
+                ),
+              ):
+              Text(
                 'Login',
                 style: TextStyle(
                   color: Colors.white,
@@ -92,13 +108,22 @@ class LoginPage extends StatelessWidget {
     if (!_formKey.currentState.validate()) {
       return;
     }
+
+    setState(() {
+     _progress = true; 
+    });
     print('Login: $login Senha: $senha');
 
-    final response = await LoginService.login(login, senha);
-    if (response.isOk()) {
-      print('Entrar na home!');
-    } else {
-      alert(context, 'Erro', response.msg);
-    }
+    //final response = await LoginService.login(login, senha);
+    //if (response.isOk()) {
+      pushReplace(context, HomePage());
+      
+    // } else {
+    //   alert(context, 'Erro', response.msg);
+    // }
+
+    setState(() {
+     _progress = false; 
+    });
   }
 }
