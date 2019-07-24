@@ -1,7 +1,10 @@
+import 'package:delimeals/screens/filters_screen.dart';
+import 'package:delimeals/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:delimeals/screens/categories_screen.dart';
 import 'package:delimeals/screens/category_meals_screen.dart';
+import 'package:delimeals/screens/meal_detail_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'DeliMeals',
       theme: ThemeData(
         primarySwatch: Colors.pink,
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
             title: TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: 'RobotoCondensed',
               fontWeight: FontWeight.bold,
             )),
@@ -31,8 +35,10 @@ class MyApp extends StatelessWidget {
       // home: CategoriesScreen(),
       initialRoute: '/', // default is '/'
       routes: {
-        '/': (ctx) => CategoriesScreen(),
+        '/': (ctx) => TabScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
     );
   }

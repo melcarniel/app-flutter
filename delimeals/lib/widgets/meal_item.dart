@@ -1,8 +1,10 @@
+import 'package:delimeals/screens/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -10,6 +12,7 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   MealItem({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.affordability,
@@ -20,13 +23,13 @@ class MealItem extends StatelessWidget {
   String get complexityText {
     switch (complexity) {
       case Complexity.Simple:
-        return 'Simple';
+        return 'Simples';
         break;
       case Complexity.Challenging:
-        return 'Challenging';
+        return 'Desafiadora';
         break;
       case Complexity.Hard:
-        return 'Hard';
+        return 'Difícil';
         break;
       default:
         return 'Unknown';
@@ -36,25 +39,33 @@ class MealItem extends StatelessWidget {
   String get affordabilityText {
     switch (affordability) {
       case Affordability.Affordable:
-        return 'Affordable';
+        return 'Barata';
         break;
       case Affordability.Pricey:
-        return 'Pricey';
+        return 'Razoável';
         break;
       case Affordability.Luxurious:
-        return 'Expensive';
+        return 'Cara';
         break;
       default:
         return 'Unknown';
     }
   }
 
-  void selectMeal() {}
+  void selectMeal(context) {
+    Navigator.of(context).pushNamed(
+      MealDetailScreen.routeName,
+      arguments: {
+        'id': id,
+        'title': title,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -105,21 +116,39 @@ class MealItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Row(children: <Widget>[
-                    Icon(Icons.schedule,),
-                    SizedBox(width: 6,),
-                    Text('$duration min'),
-                  ],),
-                  Row(children: <Widget>[
-                    Icon(Icons.work,),
-                    SizedBox(width: 6,),
-                    Text(complexityText),
-                  ],),
-                    Row(children: <Widget>[
-                    Icon(Icons.attach_money,),
-                    SizedBox(width: 6,),
-                    Text(affordabilityText),
-                  ],),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.schedule,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityText),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.attach_money,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityText),
+                    ],
+                  ),
                 ],
               ),
             ),

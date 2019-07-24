@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:delimeals/widgets/meal_item.dart';
-import 'package:delimeals/dummy_categories.dart';
+import '../dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   static const routeName = '/categories-meals';
@@ -27,6 +27,7 @@ class CategoryMealsScreen extends StatelessWidget {
         itemBuilder: (ctx, index) {
           print(filterMeals[index].imageUrl);
           return MealItem(
+             id: filterMeals[index].id,
              title: filterMeals[index].title,
             imageUrl: filterMeals[index].imageUrl,
             duration: filterMeals[index].duration,

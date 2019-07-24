@@ -6,12 +6,12 @@ import './models/meal.dart';
 const DUMMY_CATEGORIES = const [
   Category(
     id: 'c1',
-    title: 'Italian',
+    title: 'Italiana',
     color: Colors.purple,
   ),
   Category(
     id: 'c2',
-    title: 'Quick & Easy',
+    title: 'Rápido e Fácil',
     color: Colors.red,
   ),
   Category(
@@ -21,37 +21,37 @@ const DUMMY_CATEGORIES = const [
   ),
   Category(
     id: 'c4',
-    title: 'German',
+    title: 'Alemã',
     color: Colors.amber,
   ),
   Category(
     id: 'c5',
-    title: 'Light & Lovely',
+    title: 'Leve',
     color: Colors.blue,
   ),
   Category(
     id: 'c6',
-    title: 'Exotic',
+    title: 'Exótica',
     color: Colors.green,
   ),
   Category(
     id: 'c7',
-    title: 'Breakfast',
+    title: 'Café da manhã',
     color: Colors.lightBlue,
   ),
   Category(
     id: 'c8',
-    title: 'Asian',
+    title: 'Asiática',
     color: Colors.lightGreen,
   ),
   Category(
     id: 'c9',
-    title: 'French',
+    title: 'Francesa',
     color: Colors.pink,
   ),
   Category(
     id: 'c10',
-    title: 'Summer',
+    title: 'Verão',
     color: Colors.teal,
   ),
 ];
@@ -63,7 +63,7 @@ const DUMMY_MEALS = const [
       'c1',
       'c2',
     ],
-    title: 'Spaghetti with Tomato Sauce',
+    title: 'Spaghetti com molhor Vermelho',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
@@ -96,7 +96,7 @@ const DUMMY_MEALS = const [
     categories: [
       'c2',
     ],
-    title: 'Toast Hawaii',
+    title: 'Torradas Hawaianas',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
@@ -125,7 +125,7 @@ const DUMMY_MEALS = const [
       'c2',
       'c3',
     ],
-    title: 'Classic Hamburger',
+    title: 'Clássico Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
@@ -193,7 +193,7 @@ const DUMMY_MEALS = const [
           'c5',
       'c10',
     ],
-    title: 'Salad with Smoked Salmon',
+    title: 'Salada com salmão defumado',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
     imageUrl:
@@ -228,7 +228,7 @@ const DUMMY_MEALS = const [
       'c6',
       'c10',
     ],
-    title: 'Delicious Orange Mousse',
+    title: 'Mousse de Laranja',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
     imageUrl:
@@ -294,7 +294,7 @@ const DUMMY_MEALS = const [
     categories: [
       'c8',
     ],
-    title: 'Creamy Indian Chicken Curry',
+    title: 'Indian Chicken Curry',
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
     imageUrl:
