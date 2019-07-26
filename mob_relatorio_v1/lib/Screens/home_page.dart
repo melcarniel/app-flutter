@@ -1,61 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:mob_relatorio_v1/widgets/body_home.dart';
 
 class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Stack(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: 5, left: 58),
-              child: Text(
-                'Relatórios',
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 11, left: 90),
-              child: Text(
-                '____',
-                style: TextStyle(
-                    color: Colors.yellow, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-        elevation: 0.0,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+
+  AppBar _appBar() {
+    return AppBar(
+      title: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 24),
-            child: Card(
-              elevation: 3,
-              color: Colors.blue[300],
-              child: Container(
-                padding: EdgeInsets.only(left: 100),
-                height: 170,
-                width: 300,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 4),
-                  child: Text(
-                    'META X DIA',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
+            margin: EdgeInsets.only(top: 5, left: 80),
+            child: Text(
+              'Relatórios',
+              style: TextStyle(fontSize: 22),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 11, left: 112),
+            child: Text(
+              '____',
+              style: TextStyle(
+                  color: Colors.yellow, fontWeight: FontWeight.bold),
             ),
           ),
         ],
+      ),
+      elevation: 0.0,
+    );
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _appBar(),
+      body: SingleChildScrollView(
+        child: BodyHome()
       ),
       drawer: Drawer(),
       backgroundColor: Colors.blue,
     );
   }
+
+  
 }
